@@ -1,0 +1,406 @@
+<!--
+<?php session_start();
+//print_r($_SESSION);
+
+if (!isset($_SESSION['basic_is_logged_in']) || $_SESSION['basic_is_logged_in'] !== true) {
+    header('Location: index.php');
+    exit;
+}
+if ($_SESSION["test_in"] != "gold") {
+    echo '<script type="text/javascript">';
+    echo 'alert("Unauthorized access");history.go(-1);';
+    echo '</script>';
+    exit;
+}
+
+
+
+
+echo $variable = $_SESSION['username'];
+$user_name = escapeshellarg($variable);
+$output_lock = shell_exec("/usr/bin/ksh /opt_local/mspcrm/apache2.2.29/htdocs/Shift-left/in/user_lock.ksh $user_name");
+echo $output_lock;
+if ($output_lock != 0) {
+    echo $output_lock;
+    exit;
+}
+$output10 = shell_exec("/usr/bin/ksh /opt_local/mspcrm/apache2.2.29/htdocs/Shift-left/script/session_uncheck1.ksh");
+if ($_SESSION['counter'] == 0) {
+    $output = shell_exec("/usr/bin/ksh /opt_local/mspcrm/apache2.2.29/htdocs/Shift-left/script/session_uncheck1.ksh");
+    if ($output == 0) {
+        $_SESSION['counter']++;
+        $output100 = shell_exec("/usr/bin/ksh /opt_local/mspcrm/apache2.2.29/htdocs/Shift-left/script/session_check1.ksh");
+    }
+    if ($output == 1) {
+        echo '<script type="text/javascript">';
+        echo 'alert("already user is logged in");history.go(-1);';
+        echo '</script>';
+    }
+} ?>
+-->
+<HTML>
+
+<HEAD>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="in_php.css" type="text/css" media="screen, projection" />
+	<script type="text/javascript">
+		window.onclose = closingCode;
+		
+		function closingCode(){
+		 //  window.location="http://crmcapacityprd1.kpno.be/Shift-left/logout2.php";
+		  // return null;
+		}
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		function resetValues()
+		{
+		 var x = document.getElementById("txtbx1");//your input element id for reset user
+		  x.value = "";
+		 var y = document.getElementById("txtbx2");//your input element id for reset user mail
+		  y.value = "";
+		 var z = document.getElementById("txtbx3");//your input element id for unlock user
+		  z.value = "";
+		}
+		
+		
+			 function logoutAlert() {
+				/*alert("Your session has been expired !!");*/
+				window.location.replace("https://github.com/");
+		
+		                    }
+		
+		
+		function clickedNo(){
+		logoutAlert();
+		}
+		
+		var timeoutId;
+		
+		     function showCurtain() { 
+		            element = document.querySelector('.curtain'); 
+		            element.style.visibility = 'visible';
+		           	disableScroll();
+			document.body.style.pointerEvents="none";   
+		}
+		
+		
+		function disableScroll() { 
+		            // Get the current page scroll position 
+		            scrollTop =  
+		              window.pageYOffset || document.documentElement.scrollTop; 
+		            scrollLeft =  
+		              window.pageXOffset || document.documentElement.scrollLeft, 
+		  
+		                // if any scroll is attempted, 
+		                // set this to the previous value 
+		                window.onscroll = function() { 
+		                    window.scrollTo(scrollLeft, scrollTop); 
+		                }; 
+		        } 
+		  
+		        function enableScroll() { 
+		            window.onscroll = function() {}; 
+		        }
+	</script>
+	<TITLE>TIMEOUT COUNTER</TITLE>
+	<!--
+
+<form href="http://crmcapacityprd1.kpno.be/Shift-left/crmtel.php">
+ <input type="image" src="http://crmcapacityprd1.kpno.be/Shift-left/techm_logo.jpg" alt="Submit" style="width:180px;height:100px;" align="left" >
+</form>
+ <br>
+<img src="http://crmcapacityprd1.kpno.be/Shift-left/shift-left_logo2.jpg" alt="crmtel logo" style="width:200px;height:90px;" align="right">
+
+-->
+</HEAD>
+
+<Body onload="resetValues()">
+	<input type="button" onclick="topFunction()" id="myBtn" value="TOP" title="Go to top" />
+	<script>
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+		
+		function scrollFunction() {
+		    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		        document.getElementById("myBtn").style.display = "block";
+		    } else {
+		        document.getElementById("myBtn").style.display = "none";
+		    }
+		}
+		
+		
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+		    document.body.scrollTop = 0;
+		    document.documentElement.scrollTop = 0;
+		
+		}
+	</script>
+	<!-- <script type="text/javascript">document.getElementById("txtbx1").value = "";</script>
+<script type="text/javascript">document.getElementById("txtbx2").value = "";</script> 
+<BR>
+<BR><br><br><BR> -->
+	<ul>
+		<li><a href="#" class="dropdown">Home</a>
+		</li>
+		<li class="dropdown"><a href="#">Epiphany</a>
+			<div class="dropdown-content"> <a href="#">Mark Order Complete</a>
+				<a href="#">Mark Order Obsolete</a>
+			</div>
+		</li>
+		<li class="dropdown"><a href="#">BSCS</a>
+			<div class="dropdown-content"> <a href="#">Bypass pending request</a>
+				<a href="#">Resubmit pending request</a>
+				<a href="#">Provisioning request cancellation</a>
+				<a href="#">Change business unit</a>
+				<a href="#">Memo date cancellation</a>
+				<a href="#">CACS User Reset and Unlock Password</a>
+			</div>
+		</li>
+		<li class="dropdown"><a href="#">BSCS - Back Office</a>
+			<div class="dropdown-content"> <a href="#">BSCS User Password Reset</a>
+				<a href="#">CACS User Reset and Unlock Password</a>
+			</div>
+		</li>
+		<li class="dropdown active"><a href="#"> IN </a>
+			<div class="dropdown-content"> <a href="#">Reset Password</a>
+				<a href="#">Unlock User</a>
+		</li>
+		<li class="dropdown"><a href="#"> ITEL </a>
+			<div class="dropdown-content"> <a href="#">ALL SERVICE SANITY</a>
+				<a href="#">Single Service Sanity</a>
+		</li> <span style="float:right;"><li class="dropdown"><a href="#"> Contact </a></li>
+  <li class="dropdown"><a href="#">About</a></li>
+  <li class="float" style="background-color: #ff3300;"><a href="https://github.com/">Logout<li></a></span>
+	</ul>
+	<div class="curtain" style="visibility:hidden">
+		<div class="modal-content">
+			<p style="font-size:25px;">
+				<center>
+					<img src="imgs/timeout-icon.png">&nbsp;&nbsp;Your session is about to expire !!</p>
+			<button class="button1" onclick="clickedYes();enableScroll();" value="1">Stay Connected</button>
+			<button class="button2" onclick="clickedNo();" value="2">Logout Now</button>
+		</div>
+		</center>
+	</div>
+	<div class="container">
+		<div id="zero" style="background-color: #d1d1e0;">
+			<table style="padding-top: 1.35%; padding-left: 2.5%">
+				<tr style="width:100%;">
+					<td>Once Submitted, Please Wait Until the Output is Displayed..</td>
+					<td></td>
+					<td align="right" style="margin-right:250"><b>Time Out Countdown Running ...</b>
+
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="first" style="background-color: #d1d1e0;">
+			<br>
+			<form action="in_reset_password_prd.php" autocomplete="off" method="post" style="font-family:Calibri;" onsubmit="clickedYes();document.getElementById('resetsubmit').disabled=true;document.getElementById('unlocksubmit').disabled=true;">
+				<div align="right" style="margin-right:250">
+					<div id="reset_count">
+						<?php $handle = fopen("in_resetcounter.txt", "r");
+if (!$handle) {
+    echo "could not open the file";
+} else {
+    $resetcounter = (int)fread($handle, 20);
+    fclose($handle);
+    echo " Reset Counter : $resetcounter ";
+} ?>
+					</div>
+				</div>
+				<table>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<center><b>IN - RESET PASSWORD</b>
+							</center>
+						</td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td></td>
+						<td>USER ID<font color="red">*</font>
+						</td>
+						<td>
+							<input type="search" id="txtbx1" name="password" align="middle" onkeyup="toggleButton(this,'txtbx2');" pattern="[a-zA-Z0-9]+([,]?[a-zA-Z0-9])*" title="Input should not contain space or other special characters except one comma (,) must be used to separate usernames" placeholder="userid1,userid2,.." required="required">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>MAIL ID<font color="red">*</font>
+						</td>
+						<td>
+							<input type="email" id="txtbx2" name="mail_id" align="middle" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" onkeyup="ValidateEmail(this,'resetsubmit');" disabled placeholder="you@example.com" required="required" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan=2 style="width:50px"><font color="red" size="2px">Reset Password will be sent as attachment to the entered mail id</font>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="submit" value="RESET PASSWORD" id='resetsubmit' disabled='disabled' onclick="document.getElementById('note1').innerHTML='Please Wait !!'">
+						</td>
+						<td>
+							<p id="note1"></p>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="second" style="background-color: #d1d1e0;">
+			<br>
+			<form autocomplete="off" action="in_unlock_user_prd.php" method="post" style="font-family:Calibri;" onsubmit="clickedYes();document.getElementById('unlocksubmit').disabled=true;document.getElementById('resetsubmit').disabled=true;">
+				<div align="right" style="margin-right:250">
+					<div id="unlock_count">
+						<?php $handle = fopen("in_unlockcounter.txt", "r");
+if (!$handle) {
+    echo "could not open the file";
+} else {
+    $unlockcounter = (int)fread($handle, 20);
+    fclose($handle);
+    echo " Unlock Counter : $unlockcounter ";
+} ?>
+					</div>
+				</div>
+				<table>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<center><b>IN - USER UNLOCK</b>
+								<center>
+						</td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td></td>
+						<td>USER ID<font color="red">*</font>
+						</td>
+						<td>
+							<input type="search" id="txtbx3" name="unlockuser" align="middle" pattern="[a-zA-Z0-9]+([,]?[a-zA-Z0-9])*" title="Input should not contain space or other special characters except one comma (,) must be used to separate usernames" placeholder="userid1,userid2,.." required="required" onkeyup="toggleButton(this,'unlocksubmit');">
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="submit" id='unlocksubmit' disabled='disabled' value="UNLOCK USER" onclick="document.getElementById('note').innerHTML='Please Wait !!';">
+						</td>
+						<td>
+							<p id="note"></p>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<div id="footer">
+		<div align="right" style="margin-right:100">Niyaz Asad</div>
+	</div>
+	<script>
+		function myFunction() {
+		    document.getElementById("first").reset();
+			//document.getElementById("second").unlock();
+		}
+		
+		function toggleButton(ref,bttnID) 
+		     {
+		      document.getElementById(bttnID).disabled = ((ref.value !== ref.defaultValue) ? false : true);
+		
+		       if (ref.value.length > 0)
+		       {
+		       ValidateEmail(document.getElementById('txtbx2'),'resetsubmit');
+		       }
+		       
+		       else {
+		       	document.getElementById('resetsubmit').disabled=true;
+		       }
+		       
+		       if(document.getElementById(bttnID).disabled == true){
+		       document.getElementById('resetsubmit').disabled = true;
+		       }
+		            
+		       }
+		            
+		function ValidateEmail(ref,bttnID) 
+		{
+		 if ((/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(ref.value)) && (document.getElementById('txtbx1').value.length != 0))
+		  {
+		     document.getElementById(bttnID).disabled = ((ref.value !== ref.defaultValue) ? false : true);
+		  }
+		    else document.getElementById(bttnID).disabled = "disabled";
+		}
+	</script>
+	</div>
+	<div class="sticky" style="visibility:visible;">Time left = <span id="timer"></span>
+	</div>
+	<script>
+		document.getElementById('timer').innerHTML = 01 + ":" + 01;
+		                //document.getElementById('continuetimer').innerHTML = 05 + ":" + 31;
+		
+		                startTimer();
+		
+		                function startTimer() {
+		
+			  var presentTime = document.getElementById('timer').innerHTML;
+		                    var timeArray = presentTime.split(/[:]+/);
+		                    var m = timeArray[0];
+		                    var s = checkSecond(m,(timeArray[1] - 1));
+			  var timeoutId;
+		                    if (s == 59) {
+		                        m = m - 1;
+		                    };
+		                    if (m == 0 && s <= 40 ) 
+				{
+				showCurtain();
+				}
+			
+		                    document.getElementById('timer').innerHTML =
+		                    m + ":" + s;
+		                    console.log(m);
+		                    setTimeout(startTimer, 1000);
+		                }
+		
+		                function checkSecond(min,sec) {
+				if (min == 0 && sec < 1 )
+					{
+					logoutAlert();
+						}
+		                    if (sec < 10 && sec >= 0) {
+		                        sec = "0" + sec
+		                    }; // add zero in front of numbers < 10
+		                    if (sec < 0) {
+		                        sec = "59"
+		                    };
+		                    return sec;
+		                }
+		
+		      function clickedYes() { 
+		            	element = document.querySelector('.curtain'); 
+		            	element.style.visibility = 'hidden';
+			var x = document.getElementById("timer");
+		
+			document.getElementById('timer').innerHTML = "";
+		
+			document.getElementById('timer').innerHTML = 01 + ":" + 01;
+			 var newTime = document.getElementById('timer').innerHTML;
+		                   var newArray = newTime.split(/[:]+/);
+		                   var min = newArray[0];
+			
+			document.body.style.pointerEvents="auto";  // enabling pointers
+		
+		        }
+	</script>
+	</div>
+</body>
+
+</html>
